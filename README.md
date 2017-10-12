@@ -1,4 +1,6 @@
 # pasdivert
+[![Release](https://img.shields.io/github/release/stievie/pasdivert.svg)](https://github.com/stievie/pasdivert/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/stievie/pasdivert/latest/total.svg?maxAge=3600)](https://github.com/stievie/pasdivert/releases)
 
 Pascal binding for [WinDivert](http://reqrypt.org/windivert.html).
 
@@ -7,7 +9,7 @@ This Unit can be used with Delphi and Free Pascal.
 ## WinDivert
 
 Copied from the Website: WinDivert is a user-mode packet capture-and-divert 
-package for Windows Vista, Windows 2008, Windows 7, Windows 8.
+package for Windows Vista, Windows 2008, Windows 7, Windows 8 and Windows 10.
 
 WinDivert allows user-mode applications to capture/modify/drop network packets 
 sent to/from the Windows network stack.
