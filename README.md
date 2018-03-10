@@ -1,6 +1,7 @@
 # pasdivert
-[![Release](https://img.shields.io/github/release/stievie/pasdivert.svg)](https://github.com/stievie/pasdivert/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/stievie/pasdivert/latest/total.svg?maxAge=3600)](https://github.com/stievie/pasdivert/releases)
+[![Build status](https://ci.appveyor.com/api/projects/status/l28xsxrtm0qv8asc?svg=true)](https://ci.appveyor.com/project/solodyagin/pasdivert)
+[![Release](https://img.shields.io/github/release/solodyagin/pasdivert.svg)](https://github.com/solodyagin/pasdivert/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/solodyagin/pasdivert/latest/total.svg?maxAge=3600)](https://github.com/solodyagin/pasdivert/releases)
 
 Pascal binding for [WinDivert](http://reqrypt.org/windivert.html).
 
@@ -37,10 +38,11 @@ Please run these examples as Administrator. To debug them with Delphi run Delphi
 as Administrator.
 
 * `passthru` This program does nothing except divert packets and re-inject them.
-* `netdump` This is a simple traffic monitor.  It uses a WinDivert handle in SNIFF 
+* `netdump` This is a simple traffic monitor. It uses a WinDivert handle in SNIFF 
   mode. The SNIFF mode copies packets and does not block the original.
 * `webfilter` This is a simple web (HTTP) filter using WinDivert.
 * `netlimit` Simulates bad networks.
+* `dnsdump` This is a simple DNS traffic monitor.
 
 ## webfilter
 

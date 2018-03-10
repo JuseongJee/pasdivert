@@ -1,0 +1,50 @@
+# Branches to build
+branches:
+  only:
+  - master
+
+# Start builds on tags only
+skip_non_tags: true
+
+# Skipping commits
+skip_commits:
+  files:
+  - README.md
+
+# Maximum number of concurrent jobs for the project
+max_jobs: 1
+
+# Build cache to preserve files/folders between builds
+cache: c:\lazarus -> appveyor-install.cmd
+
+# Scripts that run after cloning repository
+install:
+  - cmd: appveyor-install.cmd
+
+# Build scripts
+build_script:
+  - cmd: appveyor-build.cmd
+
+# Scripts to run after build
+after_build:
+  - cmd: 7z a -tzip pasdivert-win32.zip "%APPVEYOR_BUILD_FOLDER%\fpc\Win32\Release\*.exe" WinDivert32.dll WinDivert32.sys README.md LICENSE
+  - cmd: 7z rn pasdivert-win32.zip WinDivert32.dll WinDivert.dll
+  - cmd: 7z a -tzip pasdivert-win64.zip "%APPVEYOR_BUILD_FOLDER%\fpc\Win64\Release\*.exe" WinDivert64.dll WinDivert64.sys README.md LICENSE
+  - cmd: 7z rn pasdivert-win64.zip WinDivert64.dll WinDivert.dll
+
+# Artifacts configuration
+artifacts:
+  # pushing all *.zip files in build directory recursively
+  - path: '**\*.zip'
+
+# Deployment configuration
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: "eU0j66hTsR4ou10kFzDoXFNj1495/CRz56XtLroAcOIGvCm407/hpffOQmswsd1W"
+  artifact: /.*\.zip/              # upload all zip packages to release assets
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
